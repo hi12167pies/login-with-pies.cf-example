@@ -62,7 +62,7 @@ app.use(async (req, res, next) => {
   try {
     const account = await api.getAccountInfo(req.cookies.code)
     
-    // We will how have access to some properties of the user
+    // We will now have access to some properties of the user
     // To use this in later code we can store it in req.user
     req.user = account
     
