@@ -9,18 +9,23 @@
  */
 
 // Configure .env file
-require("dotenv").config()
+import dotenv from "dotenv"
+dotenv.config()
 
 // Imports
-const express = require("express")
-const PiesSDK = require("./sdk")
+import express from "express"
+import { PieSDK } from "./sdk"
+import path from "path"
 const app = express()
 
 // Create an PiesSDK instance using your API_KEY
-const api = new PiesSDK(process.env.API_KEY)
+const api = new PieSDK(process.env.API_KEY as string)
 
 // Set the view engine to ejs
 app.set("view engine", "ejs")
+
+// Set the views directory
+app.set("views", path.join(process.cwd(), "src/views"))
 
 // Import cookie parser so we can read cookies 
 app.use(require("cookie-parser")())
@@ -64,6 +69,7 @@ app.use(async (req, res, next) => {
     
     // We will now have access to some properties of the user
     // To use this in later code we can store it in req.user
+    // This uses a custom type see custom.d.ts
     req.user = account
     
     // Call next() to continue to the rest of our app
