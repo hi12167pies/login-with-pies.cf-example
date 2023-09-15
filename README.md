@@ -8,4 +8,4 @@ This example is written in `typescript` using `express.js` and `ejs`
 3. Get your API Key from https://pies.cf/panel/api
 4. Put your API Key in the `.example.env`. Example: `API_KEY=SECRECT_KEY_HERE`
 5. Rename the `.example.env` to `.env`
-6. Run this project using `node index.js`
+6. Run this project using `npx ts-node src/index.ts` or use `tsc` then run the javascript in the `dist` directory.
